@@ -8,7 +8,7 @@
 														#----- Default source code encoding
 														#sonar.sourceEncoding=UTF-8
 														
-														#sonar.projectKey=Magento-M2 
+														#sonar.projectKey=<project name>
 														#sonar.projectBaseDir=/home/jenkins/workspace/
 														
 														#sonar.sourceEncoding=UTF-8 

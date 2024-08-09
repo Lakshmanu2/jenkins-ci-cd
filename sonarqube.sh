@@ -33,7 +33,7 @@ verpipeline
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: 'refs/heads/'+ params.commerceBranch]], doGenerateSubmoduleConfigurations: false, extensions: [pruneStaleBranch()], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'jenkins-ssh-key', url: 'git@bitbucket.org:<Repo>.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: 'refs/heads/'+ params.Branch]], doGenerateSubmoduleConfigurations: false, extensions: [pruneStaleBranch()], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'jenkins-ssh-key', url: 'git@bitbucket.org:<Repo>.git']]])
                 
             }
         }

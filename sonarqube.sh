@@ -1,4 +1,25 @@
-pipeline 
+														#/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner/conf$ cat sonar-scanner.properties 
+														#Configure here general information about the environment, such as SonarQube server connection details for example
+														#No information about specific project should appear here
+														
+														#----- Default SonarQube server
+														#sonar.host.url=http://localhost:9000
+														
+														#----- Default source code encoding
+														#sonar.sourceEncoding=UTF-8
+														
+														#sonar.projectKey=Magento-M2 
+														#sonar.projectBaseDir=/home/jenkins/workspace/
+														
+														#sonar.sourceEncoding=UTF-8 
+														#sonar.scm.exclusions.disabled=true 
+														#sonar.host.url=https://sonar.qube.net/ 
+														#sonar.exclusions=**/*.xml,**/*.css,**/*.js,**/*json,**/*.html,**/*.phtml 
+														#sonar.login= 1269fffcc0a1316dbf63beac6b
+														
+														#  Path : /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner/conf
+
+verpipeline 
 {
     parameters {
     string( name: 'Branch',
@@ -10,10 +31,9 @@ pipeline
     }
     
     stages {
-        stage("Checkout") {
+        stage('Checkout') {
             steps {
-                 checkout([$class: 'GitSCM', branches: [[name: 'refs/heads/'+ params.Branch]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'jenkins-ssh-key', url: 'git@bitbucket.org:<repo>.git']]])
-                //git credentialsId:  'jenkins-ssh-key', url: 'git@bitbucket.org:<repo>.git', branch: 'develop' git clone git@bitbucket.org:<rep>.git
+                checkout([$class: 'GitSCM', branches: [[name: 'refs/heads/'+ params.commerceBranch]], doGenerateSubmoduleConfigurations: false, extensions: [pruneStaleBranch()], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'jenkins-ssh-key', url: 'git@bitbucket.org:<Repo>.git']]])
                 
             }
         }

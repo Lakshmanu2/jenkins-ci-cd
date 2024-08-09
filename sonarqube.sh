@@ -19,7 +19,7 @@ pipeline
         }
         stage ("Composer Install") {
             steps {
-                sh '/usr/bin/php8.1 /usr/local/bin/composer install -v --no-dev --prefer-dist'
+                sh '/usr/bin/php8.4 /usr/local/bin/composer install -v --no-dev --prefer-dist'
              
             }
         }
